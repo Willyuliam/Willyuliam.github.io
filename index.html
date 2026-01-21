@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Minghan Lyu</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">Minghan Lyu</div>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#research">Research Experience</a>
+                <a href="#works">Works</a>
+                <a href="#awards">Awards</a>
+                <a href="#skills">Skills</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <!-- Left sidebar -->
+        <aside class="sidebar">
+            <div class="avatar">
+                <!-- 把你的头像放到 assets/img/avatar.png；没有也没关系 -->
+                <img src="assets/img/avatar.png" alt="Avatar" onerror="this.style.display='none'">
+            </div>
+
+            <h1 class="name">Minghan Lyu</h1>
+            <p class="tagline">
+                Undergraduate Student, Computer Science<br />
+                Shandong University (SDU)
+            </p>
+
+            <div class="contact">
+                <div class="item"><span class="k">Location</span><span class="v">Jinan, China</span></div>
+                <div class="item"><span class="k">Email</span><span class="v">202300300382 [at] mail.sdu.edu.cn</span>
+                </div>
+            </div>
+
+            <div class="links">
+                <!-- 这些链接你后期换成真实地址 -->
+                <a href="#" target="_blank" rel="noopener">Google Scholar</a>
+                <a href="#" target="_blank" rel="noopener">GitHub</a>
+                <a href="#" target="_blank" rel="noopener">CV (PDF)</a>
+            </div>
+        </aside>
+
+        <!-- Right content -->
+        <section class="content">
+            <section id="about" class="block">
+                <h2>About</h2>
+                <p>
+                    I am an undergraduate student in Computer Science at Shandong University (SDU).
+                    My interests include Natural Language Processing, recommender systems,
+                    spatiotemporal modeling, and computational biology.
+                </p>
+            </section>
+
+            <section id="research" class="block">
+                <h2>Research Experience</h2>
+
+                <article class="entry">
+                    <h3>Brand-Geographic Grid Prediction</h3>
+                    <div class="meta">Advisor: Meng Chen (Associate Professor) · Tools: Python, PyTorch</div>
+                    <ul>
+                        <li>Built a “brand-geographic grid” prediction pipeline and produced reproducible artifacts.
+                        </li>
+                        <li>Designed a dual-path approach: rule-based baseline + learnable model; handled class
+                            imbalance.</li>
+                        <li>Introduced BERT representations to improve cross-brand generalization and interpretability.
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <h3>News Recommendation with NPA</h3>
+                    <div class="meta">Advisor: Li Lian (Associate Professor) · Tools: Python, PyTorch, NPA, BERT, GloVe
+                    </div>
+                    <ul>
+                        <li>Implemented an end-to-end recommendation pipeline with user history modeling and ranking.
+                        </li>
+                        <li>Designed negative sampling training and evaluated with AUC/MRR/nDCG@5/10.</li>
+                        <li>Added a BERT NLP module for deep semantic encoding of news text.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <h3>LLM-based Paper Screening</h3>
+                    <div class="meta">Advisor: Yuqing Sun (Professor) · Tools: Python, PyTorch, LLM</div>
+                    <ul>
+                        <li>Used titles/abstracts as decision features; constructed prompts aligned with task
+                            requirements.</li>
+                        <li>Evaluated decision quality with metrics such as F1.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <h3>Multimodal Understanding for Product Live-stream</h3>
+                    <div class="meta">Advisor: Lei Meng (Professor) · Tools: GRU, FastRCNN, GroundingDINO, CLIP</div>
+                    <ul>
+                        <li>Processed live-stream video frames and text descriptions; used semantic distance for
+                            negative sampling.</li>
+                        <li>Compared detection/vision models for frame-level bounding box processing.</li>
+                        <li>Explored AdaBoost-style fusion of semantic and visual signals.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <h3>Traffic Forecasting on METR-LA</h3>
+                    <div class="meta">Advisor: Yongshun Gong (Professor) · Tools: Python, PyTorch, GRU</div>
+                    <ul>
+                        <li>Built an end-to-end multi-step forecasting pipeline; evaluated with masked MAE/RMSE/MAPE.
+                        </li>
+                        <li>Constructed road topology graphs and explored similarity graphs for better structural
+                            matching.</li>
+                    </ul>
+                </article>
+
+                <article class="entry">
+                    <h3>Eukaryotic Gene Structure Prediction with HMM</h3>
+                    <div class="meta">Advisor: Jun Wang (Professor) · Tools: Python, R</div>
+                    <ul>
+                        <li>Built preprocessing from Ensembl FASTA+GFF3 to aligned training samples (NPZ/TSV/GFF3).</li>
+                        <li>Implemented a multi-state HMM with CDS phase; generated standardized GFF3 outputs.</li>
+                        <li>Evaluated at nucleotide-level and exon-level metrics to guide iterative improvements.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section id="works" class="block">
+                <h2>Works</h2>
+                <p class="hint">Add selected projects / demos / GitHub repos here (each item can link to a repository or
+                    report).</p>
+                <ul>
+                    <li><a href="#" target="_blank" rel="noopener">Project / System 1 (link)</a> — one-line description.
+                    </li>
+                    <li><a href="#" target="_blank" rel="noopener">Project / System 2 (link)</a> — one-line description.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="awards" class="block">
+                <h2>Awards</h2>
+                <ul>
+                    <li>2024 Mathematical Modeling National Contest, Problem C, Provincial First Prize</li>
+                    <li>2025 Mathematical Modeling National Contest, Problem C, Provincial First Prize</li>
+                    <li>Innovation Research Specialty Scholarship, 2024–2025 Academic Year</li>
+                </ul>
+            </section>
+
+            <section id="skills" class="block">
+                <h2>Skills</h2>
+                <h4>Programming</h4>
+                <p>C/C++, Python, Java, MySQL, MATLAB, LaTeX, R</p>
+
+                <h4>Frameworks & Tools</h4>
+                <p>PyTorch, TensorFlow, Hugging Face, GitHub, ROS, Ubuntu, Anaconda, BLAST, MEME Suite, RStudio</p>
+            </section>
+
+            <footer class="footer">
+                <div>© <span id="y"></span> Minghan Lyu</div>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
