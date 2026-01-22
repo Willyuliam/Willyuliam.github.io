@@ -14,9 +14,9 @@
             <div class="brand">Minghan Lyu</div>
             <nav class="nav">
                 <a href="#about">About</a>
-                <a href="#research">Research Experience</a>
-                <a href="#awards">Awards</a>
                 <a href="#skills">Skills</a>
+                <a href="#awards">Awards</a>
+                <a href="#research">Research Experience</a>
             </nav>
         </div>
     </header>
@@ -31,19 +31,19 @@
 
             <h1 class="name">Minghan Lyu</h1>
             <p class="tagline">
-                Undergraduate Student, Computer Science<br />
+                Undergraduate Student, School of Software<br />
                 Shandong University (SDU)
             </p>
 
             <div class="contact">
                 <div class="item"><span class="k">Location</span><span class="v">Jinan, China</span></div>
-                <div class="item"><span class="k">Email</span><span class="v">202300300382 [at] mail.sdu.edu.cn</span>
+                <div class="item"><span class="k">Email</span><span class="v">202300300382@mail.sdu.edu.cn</span>
                 </div>
             </div>
 
             <div class="links">
                 <!-- 这些链接你后期换成真实地址 -->
-                <a href="#" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/Willyuliam" target="_blank" rel="noopener">GitHub</a>
                 <a href="#" target="_blank" rel="noopener">CV (PDF)</a>
             </div>
         </aside>
@@ -53,10 +53,83 @@
             <section id="about" class="block">
                 <h2>About</h2>
                 <p>
-                    I am an undergraduate student in Computer Science at Shandong University (SDU).
-                    My interests include Natural Language Processing, recommender systems,
-                    spatiotemporal modeling, and computational biology.
+                    I am an undergraduate student in Computer Science at the School of Software, Shandong University
+                    (SDU),
+                    and a member of the New Engineering AI Innovation Experimental Class under the Joint SDU–NTU Centre
+                    for
+                    Artificial Intelligence Research (C-FAIR).
+                    My learning path has progressed step by step: building solid foundations in machine learning and
+                    deep learning,
+                    then moving into NLP (starting from LLM-related methods), further strengthening large-scale data
+                    processing and
+                    data-driven modeling, expanding to multimodal learning and fusion, and currently exploring
+                    computational biology
+                    data and bioinformatics-oriented AI modeling.
                 </p>
+            </section>
+
+            <section id="skills" class="block">
+                <h2>Skills</h2>
+
+                <h4>Programming</h4>
+                <p>C/C++, Python, Java, SQL (MySQL), MATLAB, R, LaTeX</p>
+
+                <p>Solid foundations in <strong>machine learning</strong> including <strong>deep learning</strong>,
+                    including
+                    <strong>model training</strong>, <strong>loss design</strong>, <strong>regularization</strong>, and
+                    building
+                    <strong>end-to-end pipelines</strong> from data preparation to evaluation.
+                </p>
+
+                <p>Applied <strong>large language model</strong> methods and <strong>prompting</strong> for text
+                    understanding tasks,
+                    then extended to <strong>Transformer-based</strong> text encoders (e.g., <strong>BERT-style</strong>
+                    representations),
+                    focusing on robust <strong>text preprocessing</strong> and practical <strong>semantic representation
+                        learning</strong>.</p>
+
+                <p>Strengthened <strong>data engineering</strong> skills for large datasets: <strong>data
+                        cleaning</strong>,
+                    <strong>feature construction</strong>, <strong>sampling strategies</strong>, and efficient
+                    <strong>batch scoring</strong>.
+                    Experienced in translating analysis findings into modeling iterations through reproducible
+                    experiments.
+                </p>
+
+                <p>Built multimodal pipelines combining <strong>text</strong> and <strong>vision</strong> signals for
+                    retrieval/ranking,
+                    emphasizing <strong>hard negative mining</strong>, <strong>contrastive-style training
+                        signals</strong>, and practical
+                    <strong>late-fusion ensembling</strong>. Familiar with mainstream <strong>vision models</strong> for
+                    localization and
+                    <strong>segmentation</strong> to reduce background noise and improve cross-domain robustness.
+                </p>
+
+                <p>Exploring bioinformatics-oriented data and modeling: <strong>FASTA/GFF3 parsing</strong>,
+                    <strong>genome annotation processing</strong>, <strong>probabilistic sequence modeling</strong>
+                    (e.g., <strong>HMM</strong>),
+                    and common <strong>bioinformatics toolchains</strong>. Focused on building reproducible
+                    preprocessing, standardized outputs,
+                    and evaluation loops.
+                </p>
+
+                <p>In addition, I have studied these two areas — <strong>robotics software</strong> and <strong>software
+                        engineering</strong>:
+                    <strong>ROS</strong>, <strong>Linux/Ubuntu</strong>, <strong>Git/GitHub</strong>, <strong>backend
+                        development</strong> with Java
+                    and <strong>database design</strong> with MySQL, plus environment and dependency management for
+                    reproducible development workflows.
+                </p>
+            </section>
+
+
+            <section id="awards" class="block">
+                <h2>Awards</h2>
+                <ul>
+                    <li>2024 Mathematical Modeling National Contest, Problem C, Provincial First Prize（10%）</li>
+                    <li>2025 Mathematical Modeling National Contest, Problem C, Provincial First Prize（8%）</li>
+                    <li>Innovation Research Specialty Scholarship, 2024–2025 Academic Year</li>
+                </ul>
             </section>
 
             <section id="research" class="block">
@@ -67,61 +140,161 @@
                     <div class="meta">Advisor: <a href="https://scholar.google.com/citations?hl=en&user=A95MOjcAAAAJ"
                             target="_blank" rel="noopener">Jun Wang (Professor)</a></div>
                     <ul>
-                        <li>Built preprocessing from Ensembl FASTA+GFF3 to aligned training samples (NPZ/TSV/GFF3).</li>
-                        <li>Implemented a multi-state HMM with CDS phase; generated standardized GFF3 outputs.</li>
-                        <li>Evaluated at nucleotide-level and exon-level metrics to guide iterative improvements.</li>
+                        <li><strong>Data engineering (FASTA+GFF3 → aligned samples):</strong> Addressed real-genome
+                            issues (multi-transcript overlaps, long N-runs, repeat-masked regions) by parsing Ensembl
+                            FASTA/GFF3 with strict 1-based coordinate handling, computing genome-wide GC/N/lowercase
+                            statistics, and slicing chr20/chr21 into train/validation segments using long N-runs as hard
+                            boundaries; exported reproducible artifacts (segments/labels/observations) in TSV/NPZ for
+                            downstream training and auditing.</li>
+                        <li><strong>Structured labeling (annotation → 5-state targets):</strong> Mapped each nucleotide
+                            to mutually exclusive coarse states (IG, IN, UTR5, CDS, UTR3), and compared two annotation
+                            consolidation strategies (union-of-transcripts vs representative-transcript) to resolve
+                            conflicts while retaining protein-coding coverage; this produced clean supervised targets
+                            that can be consistently re-generated and reused.</li>
+                        <li><strong>Modeling & decoding (multi-state HMM + CDS phase):</strong> Implemented a supervised
+                            multi-state HMM with explicit CDS phase modeling (3-phase expansion) and Dirichlet/Laplace
+                            smoothing for stable parameter estimation; performed Viterbi decoding in log-space, then
+                            converted predicted state paths into standardized GFF3 outputs (CDS/exon-level intervals) to
+                            make results compatible with common genome tools.</li>
+                        <li><strong>Repeat-aware innovation (hard case focus):</strong> Identified that naïvely
+                            expanding the emission alphabet to treat softmask lowercase as new symbols (ACGTacgt) can
+                            amplify false-positive exons in repeat-rich regions; replaced this with repeat-aware
+                            decoding via (i) explicit repeat states (e.g., IG_R/INTRON_R) and (ii) a softmask-driven
+                            penalty injected into the Viterbi objective to discourage exon-like explanations inside
+                            repeats—an approach aligned with repeat-penalty mechanisms used in modern eukaryotic gene
+                            predictors.</li>
+                        <p style="max-width:320px;margin:8px 0 0;">
+                            <img src="assets/img/Biology.png" alt="Repeat-aware decoding visualization" loading="lazy"
+                                style="width:100%;height:auto;display:block;">
+                        </p>
+                        <li><strong>Evaluation loop (nucleotide + exon exact match):</strong> Built evaluation scripts
+                            reporting nucleotide-level Sn/Sp (PPV) and exon-level exact-match metrics, ran ablations
+                            across repeat-handling variants, and iterated hyperparameters for the repeat penalty; on
+                            held-out chr21 validation segments, the tuned softmask+penalty variant reached balanced
+                            nucleotide-level performance (Exon Sn/Sp ≈ 0.476/0.457; CDS Sn/Sp ≈ 0.528/0.541) while
+                            keeping exon-exact evaluation as the primary error signal for further improvements.</li>
                     </ul>
                 </article>
+
 
                 <article class="entry">
                     <h3>Multimodal Understanding for Product Live-stream</h3>
                     <div class="meta">Advisor: <a href="https://scholar.google.com/citations?hl=en&user=KuukGGkAAAAJ"
                             target="_blank" rel="noopener">Lei Meng (Professor)</a></div>
                     <ul>
-                        <li>Processed live-stream video frames and text descriptions; used semantic distance for
-                            negative sampling.</li>
-                        <li>Compared detection/vision models for frame-level bounding box processing.</li>
-                        <li>Explored AdaBoost-style fusion of semantic and visual signals.</li>
+                        <li>Built a reproducible data pipeline for live-stream retrieval: sampled keyframes and parsed
+                            JSON annotations, decoded ASR keyword token IDs via provided dictionaries, and profiled
+                            token distribution gaps between video-side speech text and product-side text metadata.</li>
+                        <li>Implemented a text-based retrieval baseline with a semantic encoder (myModel) for
+                            variable-length sequences plus an FM matching layer to fuse semantic signals with structured
+                            ID features; optimized inference by replacing nested loops with matrix-based scoring.</li>
+                        <li>Led hard negative mining (core): constructed an L2-normalized embedding bank over candidate
+                            image_texts and mined the “most similar but non-matching” samples as hard negatives,
+                            refreshed per epoch; finalized a mixed contrastive sampling strategy (7 hard + 3 regular
+                            negatives) to strengthen fine-grained discrimination.</li>
+                        <li>Reduced visual noise via preprocessing and ROI localization: applied GroundingDINO to crop
+                            clothing regions and YOLOv8 instance segmentation to remove background/person artifacts,
+                            mitigating domain shift from in-the-wild video frames to studio product images.</li>
+                        <li>Audited similarity improvements with quantitative summaries and case-based visualization,
+                            and explored AdaBoost-style late fusion by combining text/video similarity score matrices
+                            for final ranking.</li>
+                        <p style="max-width:320px;margin:8px 0 0;">
+                            <img src="assets/img/MultiModel.png" alt="Multimodal live-stream retrieval visualization"
+                                loading="lazy" style="width:100%;height:auto;display:block;">
+                        </p>
                     </ul>
                 </article>
+
 
                 <article class="entry">
                     <h3>Traffic Forecasting on METR-LA</h3>
                     <div class="meta">Advisor: <a href="https://scholar.google.com/citations?hl=en&user=WIHqungAAAAJ"
                             target="_blank" rel="noopener">Yongshun Gong (Professor)</a></div>
                     <ul>
-                        <li>Built an end-to-end multi-step forecasting pipeline; evaluated with masked MAE/RMSE/MAPE.
-                        </li>
-                        <li>Constructed road topology graphs and explored similarity graphs for better structural
-                            matching.</li>
+                        <li>Built an end-to-end spatiotemporal forecasting pipeline (data cleaning → sliding-window
+                            supervision → training/inference) and evaluated multi-step horizons with masked
+                            MAE/RMSE/MAPE.</li>
+                        <li>Implemented a dual-branch architecture (temporal GRU modeling per-sensor dynamics + spatial
+                            diffusion convolution for graph propagation) and fused branch predictions with an MLP head
+                            to stabilize time–space coupling.</li>
+                        <p style="max-width:320px;margin:8px 0 12px;">
+                            <img src="assets/img/Metr1.png" alt="METR-LA pipeline visualization" loading="lazy"
+                                style="width:100%;height:auto;display:block;">
+                        </p>
+                        <li>Constructed multiple graph priors: (i) physical road topology and (ii) a sparsified
+                            similarity graph (Pearson/Spearman/Cosine with time-decay; top-k positive neighbors) to
+                            capture non-local dependencies beyond adjacency.</li>
+                        <li>Improved robustness under distribution shift via Time-of-Day/Day-of-Week periodic
+                            conditioning, scheduled sampling + curriculum horizon for multi-step prediction, and
+                            training controls (ReduceLROnPlateau, gradient clipping, early stopping).</li>
+                        <li>Modeled regional heterogeneity with multi-graph supports (within-region topology,
+                            within-region correlation, sparse cross-region bridge graph), node-adaptive support
+                            weighting, and cross-region attention to mitigate negative transfer.</li>
+                        <p style="max-width:320px;margin:8px 0 12px;">
+                            <img src="assets/img/Metr2.png" alt="METR-LA multi-graph visualization" loading="lazy"
+                                style="width:100%;height:auto;display:block;">
+                        </p>
+                        <li>Reduced test error from MAE/RMSE/MAPE 6.15/11.98/12.95% (baseline) to 3.71/7.42/10.32%
+                            (improved) and 3.57/7.37/10.17% (heterogeneity-aware).</li>
                     </ul>
                 </article>
+
 
                 <article class="entry">
                     <h3>Brand-Geographic Grid Prediction</h3>
                     <div class="meta">Advisor: <a href="https://scholar.google.com/citations?hl=zh-CN&user=xE4gacoAAAAJ"
                             target="_blank" rel="noopener">Meng Chen (Associate Professor)</a></div>
                     <ul>
-                        <li>Built a “brand-geographic grid” prediction pipeline and produced reproducible artifacts.
-                        </li>
-                        <li>Designed a dual-path approach: rule-based baseline + learnable model; handled class
-                            imbalance.</li>
-                        <li>Introduced BERT representations to improve cross-brand generalization and interpretability.
-                        </li>
+                        <li><strong>Problem:</strong> Formulated a next-location prediction task for commercial site
+                            selection by mapping brand expansion records into a fixed geographic grid and targeting
+                            top-K ranking under sparse, weakly timestamped trajectories.</li>
+                        <li><strong>Method:</strong> Engineered spatially consistent training sequences via
+                            density-based reordering and sliding-window sample generation; built a multimodal
+                            NextGridPredictor that fuses an LSTM trajectory encoder with coordinate/POI MLP encoders,
+                            trained with cross-entropy and early stopping on validation MRR.</li>
+                        <p style="max-width:320px;margin:8px 0 0;">
+                            <img src="assets/img/Grid.png" alt="Brand geographic grid visualization" loading="lazy"
+                                style="width:100%;height:auto;display:block;">
+                        </p>
+                        <li><strong>Impact:</strong> Achieved Test Acc@1=0.270, Acc@5=0.567, Acc@10=0.724, and
+                            MRR=0.450, outperforming the best LSTM-MLP baseline by +347% (Acc@1) and +357% (MRR);
+                            released reproducible code, preprocessing, evaluation scripts, and model artifacts.</li>
                     </ul>
                 </article>
+
 
                 <article class="entry">
                     <h3>News Recommendation with NPA</h3>
                     <div class="meta">Advisor: <a href="https://faculty.sdu.edu.cn/lianli/" target="_blank"
                             rel="noopener">Li Lian (Associate Professor)</a></div>
                     <ul>
-                        <li>Implemented an end-to-end recommendation pipeline with user history modeling and ranking.
+                        <li><strong>Objective:</strong> Reproduced the KDD’19 <em>NPA (Neural News Recommendation with
+                                Personalized Attention)</em> as a reliable neural news recommendation baseline on the
+                            <em>MIND</em> benchmark, and explored representation upgrades beyond title-only modeling.
                         </li>
-                        <li>Designed negative sampling training and evaluated with AUC/MRR/nDCG@5/10.</li>
-                        <li>Added a BERT NLP module for deep semantic encoding of news text.</li>
+                        <li><strong>Method:</strong> Built an end-to-end pipeline on <em>MIND-small</em> by parsing
+                            <code>behaviors.tsv</code> and <code>news.tsv</code>, constructing user click histories and
+                            impression-level candidate sets, and training with controlled negative sampling (e.g.,
+                            configurable <code>neg_ratio</code>, history truncation/padding).
+                        </li>
+                        <li><strong>Modeling:</strong> Implemented the NPA architecture with GloVe-initialized
+                            embeddings and a CNN-based news encoder, followed by personalized word-level attention;
+                            encoded users via personalized news-level attention and performed ranking with standard
+                            recommendation objectives.</li>
+                        <li><strong>Evaluation & Optimization:</strong> Evaluated with <em>AUC</em>, <em>MRR</em>,
+                            <em>nDCG@5</em>, and <em>nDCG@10</em>, and integrated Optuna hyperparameter optimization
+                            with pruning (MedianPruner) to accelerate convergence and improve stability.
+                        </li>
+                        <li><strong>Enhancement:</strong> Added a lightweight BERT-family NLP module
+                            (<em>DistilBERT</em>) to encode news text (e.g., title + abstract) for deeper semantic
+                            representations under constrained compute.</li>
+                        <li><strong>Results:</strong> Achieved a solid reproduction baseline (Test AUC/MRR/nDCG@5/10)
+                            and observed consistent gains after Transformer-based semantic encoding, delivering a
+                            modular, reproducible training–evaluation pipeline for future extensions (e.g.,
+                            entity/knowledge signals in MIND).</li>
                     </ul>
                 </article>
+
 
                 <article class="entry">
                     <h3>LLM-based Paper Screening</h3>
@@ -134,24 +307,6 @@
                         <li>Used an LLM for decision-making and evaluated using metrics such as F1.</li>
                     </ul>
                 </article>
-            </section>
-
-            <section id="awards" class="block">
-                <h2>Awards</h2>
-                <ul>
-                    <li>2024 Mathematical Modeling National Contest, Problem C, Provincial First Prize</li>
-                    <li>2025 Mathematical Modeling National Contest, Problem C, Provincial First Prize</li>
-                    <li>Innovation Research Specialty Scholarship, 2024–2025 Academic Year</li>
-                </ul>
-            </section>
-
-            <section id="skills" class="block">
-                <h2>Skills</h2>
-                <h4>Programming</h4>
-                <p>C/C++, Python, Java, MySQL, MATLAB, LaTeX, R</p>
-
-                <h4>Frameworks & Tools</h4>
-                <p>PyTorch, TensorFlow, Hugging Face, GitHub, ROS, Ubuntu, Anaconda, BLAST, MEME Suite, RStudio</p>
             </section>
 
             <footer class="footer">
