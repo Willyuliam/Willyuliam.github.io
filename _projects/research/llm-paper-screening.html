@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LLM-based Paper Screening - Minghan Lyu</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">Minghan Lyu</div>
+            <nav class="nav">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#awards">Awards</a>
+                <a href="../index.html#research">Research Experience</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <aside class="sidebar">
+            <div class="avatar">
+                <img src="../assets/img/avatar.png" alt="Avatar" onerror="this.style.display='none'">
+            </div>
+
+            <h1 class="name">Minghan Lyu</h1>
+            <p class="tagline">
+                Undergraduate Student, School of Software<br />
+                Shandong University (SDU)
+            </p>
+
+            <div class="contact">
+                <div class="item"><span class="k">Location</span><span class="v">Jinan, China</span></div>
+                <div class="item"><span class="k">Email</span><span class="v">202300300382@mail.sdu.edu.cn</span>
+                </div>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/Willyuliam" target="_blank" rel="noopener">GitHub</a>
+                <a href="../assets/img/%E7%AE%80%E4%BB%8B.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+            </div>
+        </aside>
+
+        <section class="content">
+            <section class="block">
+                <a class="back-link" href="../index.html#research">Back to Research Experience</a>
+                <article class="entry">
+                    <h2>LLM-based Paper Screening</h2>
+                    <div class="meta"><span class="time">Nov 2024 - Dec 2024</span> | Advisor: <a
+                            href="https://scholar.google.com/citations?hl=zh-CN&user=4CVXyOkAAAAJ" target="_blank"
+                            rel="noopener">Yuqing Sun (Professor)</a></div>
+                    <ul>
+                        <li>Used paper titles and abstracts as decision features for screening.</li>
+                        <li>Constructed prompt engineering by separating the requirements of meta-analysis itself and
+                            the requirements of the current project.</li>
+                        <li>Used an LLM for decision-making and evaluated using metrics such as F1.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <footer class="footer">
+                <div>© <span id="y"></span> Minghan Lyu</div>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

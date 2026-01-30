@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Traffic Forecasting on METR-LA - Minghan Lyu</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">Minghan Lyu</div>
+            <nav class="nav">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#awards">Awards</a>
+                <a href="../index.html#research">Research Experience</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <aside class="sidebar">
+            <div class="avatar">
+                <img src="../assets/img/avatar.png" alt="Avatar" onerror="this.style.display='none'">
+            </div>
+
+            <h1 class="name">Minghan Lyu</h1>
+            <p class="tagline">
+                Undergraduate Student, School of Software<br />
+                Shandong University (SDU)
+            </p>
+
+            <div class="contact">
+                <div class="item"><span class="k">Location</span><span class="v">Jinan, China</span></div>
+                <div class="item"><span class="k">Email</span><span class="v">202300300382@mail.sdu.edu.cn</span>
+                </div>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/Willyuliam" target="_blank" rel="noopener">GitHub</a>
+                <a href="../assets/img/%E7%AE%80%E4%BB%8B.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+            </div>
+        </aside>
+
+        <section class="content">
+            <section class="block">
+                <a class="back-link" href="../index.html#research">Back to Research Experience</a>
+                <article class="entry">
+                    <h2>Traffic Forecasting on METR-LA</h2>
+                    <div class="meta"><span class="time">Seq 2025 - Dec 2025</span> | Advisor: <a
+                            href="https://scholar.google.com/citations?hl=en&user=WIHqungAAAAJ" target="_blank"
+                            rel="noopener">Yongshun Gong (Professor)</a></div>
+                    <ul>
+                        <li>Built an end-to-end spatiotemporal forecasting pipeline (data cleaning → sliding-window
+                            supervision → training/inference) and evaluated multi-step horizons with masked
+                            MAE/RMSE/MAPE.</li>
+                        <li>Implemented a dual-branch architecture (temporal GRU modeling per-sensor dynamics + spatial
+                            diffusion convolution for graph propagation) and fused branch predictions with an MLP head
+                            to stabilize time–space coupling.</li>
+                        <p style="max-width:320px;margin:8px 0 12px;">
+                            <img src="../assets/img/Metr1.png" alt="METR-LA pipeline visualization" loading="lazy"
+                                style="width:100%;height:auto;display:block;">
+                        </p>
+                        <li>Constructed multiple graph priors: (i) physical road topology and (ii) a sparsified
+                            similarity graph (Pearson/Spearman/Cosine with time-decay; top-k positive neighbors) to
+                            capture non-local dependencies beyond adjacency.</li>
+                        <li>Improved robustness under distribution shift via Time-of-Day/Day-of-Week periodic
+                            conditioning, scheduled sampling + curriculum horizon for multi-step prediction, and
+                            training controls (ReduceLROnPlateau, gradient clipping, early stopping).</li>
+                        <li>Modeled regional heterogeneity with multi-graph supports (within-region topology,
+                            within-region correlation, sparse cross-region bridge graph), node-adaptive support
+                            weighting, and cross-region attention to mitigate negative transfer.</li>
+                        <p style="max-width:320px;margin:8px 0 12px;">
+                            <img src="../assets/img/Metr2.png" alt="METR-LA multi-graph visualization" loading="lazy"
+                                style="width:100%;height:auto;display:block;">
+                        </p>
+                        <li>Reduced test error from MAE/RMSE/MAPE 6.15/11.98/12.95% (baseline) to 3.71/7.42/10.32%
+                            (improved) and 3.57/7.37/10.17% (heterogeneity-aware).</li>
+                    </ul>
+                </article>
+            </section>
+
+            <footer class="footer">
+                <div>© <span id="y"></span> Minghan Lyu</div>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
