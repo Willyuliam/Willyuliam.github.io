@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Eukaryotic Gene Structure Prediction with HMM - Minghan Lyu</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">Minghan Lyu</div>
+            <nav class="nav">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#awards">Awards</a>
+                <a href="../index.html#research">Research Experience</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <aside class="sidebar">
+            <div class="avatar">
+                <img src="../assets/img/avatar.png" alt="Avatar" onerror="this.style.display='none'">
+            </div>
+
+            <h1 class="name">Minghan Lyu</h1>
+            <p class="tagline">
+                Undergraduate Student, School of Software<br />
+                Shandong University (SDU)
+            </p>
+
+            <div class="contact">
+                <div class="item"><span class="k">Location</span><span class="v">Jinan, China</span></div>
+                <div class="item"><span class="k">Email</span><span class="v">202300300382@mail.sdu.edu.cn</span>
+                </div>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/Willyuliam" target="_blank" rel="noopener">GitHub</a>
+                <a href="../assets/img/%E7%AE%80%E4%BB%8B.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+            </div>
+        </aside>
+
+        <section class="content">
+            <section class="block">
+                <a class="back-link" href="../index.html#research">Back to Research Experience</a>
+                <article class="entry">
+                    <h2>Eukaryotic Gene Structure Prediction with HMM</h2>
+                    <div class="meta"><span class="time">Oct 2025 - Jan 2026</span> | Advisor: <a
+                            href="https://scholar.google.com/citations?hl=en&user=A95MOjcAAAAJ" target="_blank"
+                            rel="noopener">Jun Wang (Professor)</a></div>
+                    <ul>
+                        <li><strong>Data engineering (FASTA+GFF3 → aligned samples):</strong> Addressed real-genome
+                            issues (multi-transcript overlaps, long N-runs, repeat-masked regions) by parsing Ensembl
+                            FASTA/GFF3 with strict 1-based coordinate handling, computing genome-wide GC/N/lowercase
+                            statistics, and slicing chr20/chr21 into train/validation segments using long N-runs as hard
+                            boundaries; exported reproducible artifacts (segments/labels/observations) in TSV/NPZ for
+                            downstream training and auditing.</li>
+                        <li><strong>Structured labeling (annotation → 5-state targets):</strong> Mapped each nucleotide
+                            to mutually exclusive coarse states (IG, IN, UTR5, CDS, UTR3), and compared two annotation
+                            consolidation strategies (union-of-transcripts vs representative-transcript) to resolve
+                            conflicts while retaining protein-coding coverage; this produced clean supervised targets
+                            that can be consistently re-generated and reused.</li>
+                        <li><strong>Modeling & decoding (multi-state HMM + CDS phase):</strong> Implemented a supervised
+                            multi-state HMM with explicit CDS phase modeling (3-phase expansion) and Dirichlet/Laplace
+                            smoothing for stable parameter estimation; performed Viterbi decoding in log-space, then
+                            converted predicted state paths into standardized GFF3 outputs (CDS/exon-level intervals) to
+                            make results compatible with common genome tools.</li>
+                        <li><strong>Repeat-aware innovation (hard case focus):</strong> Identified that naively
+                            expanding the emission alphabet to treat softmask lowercase as new symbols (ACGTacgt) can
+                            amplify false-positive exons in repeat-rich regions; replaced this with repeat-aware
+                            decoding via (i) explicit repeat states (e.g., IG_R/INTRON_R) and (ii) a softmask-driven
+                            penalty injected into the Viterbi objective to discourage exon-like explanations inside
+                            repeats—an approach aligned with repeat-penalty mechanisms used in modern eukaryotic gene
+                            predictors.</li>
+                        <p style="max-width:320px;margin:8px 0 0;">
+                            <img src="../assets/img/Biology.png" alt="Repeat-aware decoding visualization"
+                                loading="lazy" style="width:100%;height:auto;display:block;">
+                        </p>
+                        <li><strong>Evaluation loop (nucleotide + exon exact match):</strong> Built evaluation scripts
+                            reporting nucleotide-level Sn/Sp (PPV) and exon-level exact-match metrics, ran ablations
+                            across repeat-handling variants, and iterated hyperparameters for the repeat penalty; on
+                            held-out chr21 validation segments, the tuned softmask+penalty variant reached balanced
+                            nucleotide-level performance (Exon Sn/Sp ≈ 0.476/0.457; CDS Sn/Sp ≈ 0.528/0.541) while
+                            keeping exon-exact evaluation as the primary error signal for further improvements.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <footer class="footer">
+                <div>© <span id="y"></span> Minghan Lyu</div>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
