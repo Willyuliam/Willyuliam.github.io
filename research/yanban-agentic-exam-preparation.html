@@ -55,21 +55,58 @@
                             rel="noopener">Ning Liu (Assistant Researcher)</a> | Code: <a
                             href="https://gitee.com/SuperHZX/yanban/tree/master" target="_blank"
                             rel="noopener">Gitee</a></div>
+                    <p>
+                        Yantu Lingban is an agentic Windows desktop companion for postgraduate-exam preparation. The
+                        project is not just a chatbot: it connects multi-agent dialogue, study planning, screenshot
+                        question answering, wrong-question review, proactive care, mood records, diet records, and
+                        weekly reports into a continuous learning-and-life support loop.
+                    </p>
                     <ul>
-                        <li><strong>Agentic companion system:</strong> Constructed an agentic Windows desktop companion
-                            system for postgraduate-exam preparation, covering study planning, subject question
-                            answering, mistake review, proactive care, and emotion/diet management.</li>
-                        <li><strong>Multi-agent workflow:</strong> Designed a central orchestrator, specialized
-                            study/life/psychology agents, and a shared user-state center for context-aware decisions.
-                        </li>
-                        <li><strong>Proactive intervention:</strong> Integrated rule-driven triggers for active
-                            interventions, spaced mistake review, and adaptive plan adjustment based on learning
-                            progress, pending review tasks, and user status.</li>
-                        <li><strong>End-to-end study loops:</strong> Connected Electron desktop functions, FastAPI
-                            services, WebSocket streaming, OCR-based screenshot question answering, and report
-                            generation into practical study workflows.</li>
-                        <li><strong>Release:</strong> Open-sourced the project on Gitee as an agent-oriented exam
-                            preparation prototype.</li>
+                        <li><strong>Agent-centered product design:</strong> Designed the user-facing experience around
+                            four companion roles: a main assistant, study assistant, life assistant, and mental-support
+                            assistant. Behind these roles, the system uses a central orchestrator plus specialized
+                            study-planning, tutor, life-care, and mental agents, so the user sees stable "friend-like"
+                            roles while the backend keeps responsibilities separated.</li>
+                        <li><strong>Shared user-state center:</strong> Built the system around a single state center
+                            instead of isolated agent memories. State fields include exam stage, daily available study
+                            time, completion rate, review backlog, frequent wrong knowledge points, recent mood score,
+                            study-time fluctuation, check-in streak, diet preferences, sleep rhythm, current status
+                            label, and whether the user is currently studying. This makes agent decisions explainable
+                            and prevents study, mood, and life modules from drifting apart.</li>
+                        <li><strong>Multi-agent orchestration:</strong> Implemented a service-side dispatch model with
+                            a unified AgentContext, AgentResponse, model client, route logs, and WebSocket streaming
+                            path. The orchestrator classifies intent, routes simple requests to the correct specialist,
+                            and serially coordinates mixed requests such as "I feel bad today; reduce my plan and remind
+                            me to review tonight."</li>
+                        <li><strong>Learning closed loop:</strong> Connected subject Q&amp;A, screenshot Q&amp;A,
+                            structured answer analysis, wrong-question insertion, spaced review scheduling, mastery
+                            updates, review-task generation, and daily-plan adjustment. A question can therefore become
+                            a wrong-question record, then a review task, then a later verification result that changes
+                            mastery and future planning.</li>
+                        <li><strong>Real-time desktop workflow:</strong> Used Electron + React + TypeScript for the
+                            Windows client, with a main window, always-on-top floating window, global shortcuts,
+                            screenshot selection, desktop notifications, and study timer. The backend is a Python
+                            FastAPI service with REST APIs for normal data operations and WebSocket for chat streaming
+                            and proactive messages.</li>
+                        <li><strong>Context-aware course mode:</strong> Planned and integrated a following-course
+                            workflow in which the desktop side samples keyframes from a selected window or screen
+                            region, the backend extracts OCR text, maintains a 60-120 second rolling context buffer,
+                            and the tutor agent answers questions with recent course context instead of treating each
+                            screenshot as an isolated image.</li>
+                        <li><strong>Proactive care and adaptive planning:</strong> Implemented rule-driven triggers for
+                            morning greetings, study-start encouragement, rest reminders, review-backlog reminders,
+                            workload reduction suggestions, evening rest reminders, and low-mood care. The generated
+                            message is agent-written, but trigger timing, cooldown, responsible agent, and follow-up
+                            actions remain controlled by deterministic backend rules.</li>
+                        <li><strong>Engineering reliability:</strong> Paid special attention to transaction boundaries
+                            and data consistency across modules. For example, wrong-question creation, first review-task
+                            scheduling, status-center updates, and chat action execution are treated as one coherent
+                            workflow, so a partial failure does not leave the system saying "success" while review data
+                            is missing.</li>
+                        <li><strong>Project delivery:</strong> The deliverable is a runnable Windows-oriented prototype
+                            with a FastAPI backend, MySQL data model, Electron desktop client, agent prompts and
+                            routing logic, OCR-based screenshot path, review/plan/report services, and operational
+                            documentation for local startup and demonstration.</li>
                     </ul>
                 </article>
             </section>

@@ -54,20 +54,51 @@
                             href="https://users.cs.duke.edu/~jr12/" target="_blank" rel="noopener">John H. Reif
                             (Professor)</a> | Code: <a href="https://github.com/Willyuliam/Mango" target="_blank"
                             rel="noopener">GitHub</a></div>
+                    <p>
+                        This project studies how to improve Mango's constrained grammar search for wireframe DNA
+                        origami design. Instead of presenting the work as a generic end-to-end RL optimizer, I frame the
+                        main contribution as policy-guided proposal selection: the original Mango grammar operators,
+                        constraint checks, and annealing-style acceptance logic are preserved, while rule, site, and
+                        feasibility choices are guided by masked policies and feasibility-aware proposal scores.
+                    </p>
                     <ul>
-                        <li><strong>Policy-guided search:</strong> Reframed Mango's stochastic shape-annealing search as
-                            masked, constraint-aware proposal guidance for wireframe DNA origami design.</li>
-                        <li><strong>Action interface:</strong> Engineered a hierarchical grammar-action interface over
-                            rule, site, and parameter choices, with legal action masking and failure diagnostics to keep
-                            proposals inside feasible design space.</li>
-                        <li><strong>Benchmark pipeline:</strong> Built reproducible B1/B2/B3 benchmark pipelines with
-                            unified logging, constraint-failure analysis, candidate audits, and baseline comparisons.
-                        </li>
-                        <li><strong>Result analysis:</strong> Demonstrated PG-Mango gains over Mango ShapeAnneal and
-                            Random-Feasible on 5/5 B1-family benchmarks while preserving manufacturability constraints.
-                        </li>
-                        <li><strong>Release:</strong> Open-sourced the project on GitHub for reproducible inspection and
-                            future comparison.</li>
+                        <li><strong>Research framing:</strong> Refined the project direction from full-action
+                            reinforcement learning to <strong>masked, constraint-aware proposal guidance</strong>. This
+                            framing is more defensible because Mango's search space is highly structured: many grammar
+                            actions are illegal at a given state, and many legal-looking edits still fail scaffold,
+                            edge-length, face-angle, or manufacturability constraints.</li>
+                        <li><strong>Hierarchical action space:</strong> Built an explicit grammar-action interface over
+                            three layers: <strong>rule</strong> selection, <strong>site</strong> selection, and
+                            <strong>parameter</strong> selection. The implementation records legal mask size, selected
+                            action legality, constraint pass/failure reason, objective change, best-so-far objective,
+                            graph hash, scaffold margin, edge-length margin, face-angle margin, and elapsed time for
+                            reproducible diagnosis.</li>
+                        <li><strong>Policy variants and baselines:</strong> Compared PG-Mango variants against
+                            Mango-ShapeAnneal, Random-Feasible, Rule-Site, feasibility-filtered rule-site methods,
+                            Torch full-action RL, and NoMask ablations. The most stable PG-Mango methods used
+                            feasibility-guided proposal scoring, while learned feasibility was evaluated as a promising
+                            upgrade path rather than claimed as the final best method.</li>
+                        <li><strong>B1-family validation:</strong> Ran five B1-family benchmarks with disjoint training
+                            and evaluation seeds. PG-Mango beat Mango-ShapeAnneal on <strong>5/5</strong> benchmarks and
+                            Random-Feasible on <strong>5/5</strong> benchmarks. Against Random-Feasible, the best PG
+                            variant was statistically significant on all five B1-family benchmarks with Mann-Whitney
+                            tests at <strong>p &lt; 0.05</strong>.</li>
+                        <li><strong>B2/B3 interpretation:</strong> Used B2 restored porosity-variation as the main
+                            complex benchmark confirmation, where PG-Mango-Feasibility-Empirical achieved the best
+                            mean objective. Used B3 restored manufacturability as a constraint-wall analysis rather
+                            than a victory benchmark, identifying Invalid Edge Length as the dominant failure mode and
+                            documenting where the search still needs better constraint handling.</li>
+                        <li><strong>Feasibility and manufacturability audit:</strong> Evaluated a learned feasibility
+                            classifier with strong predictive signal (AUC about <strong>0.94</strong> on B1-family,
+                            <strong>0.89</strong> on B2, and <strong>0.92</strong> on B3), while noting that integrated
+                            learned feasibility did not yet consistently outperform heuristic or empirical variants.
+                            Candidate audits confirmed positive scaffold, edge-length, and face-angle margins for top
+                            candidates.</li>
+                        <li><strong>Result boundary:</strong> The defensible conclusion is not that RL solves the whole
+                            design problem end to end. The stronger claim is that <strong>learning as proposal guidance
+                                is more effective than unconstrained full-action RL</strong> for Mango's constrained
+                            grammar search under sparse feedback, especially when legal action masks and feasibility
+                            diagnostics are kept in the loop.</li>
                     </ul>
                 </article>
             </section>
