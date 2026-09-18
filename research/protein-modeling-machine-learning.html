@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Machine Learning for Protein Modeling - Minghan Lyu</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">Minghan Lyu</div>
+            <nav class="nav">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#awards">Awards</a>
+                <a href="../index.html#research">Research Experience</a>
+                <a href="../index.html#internship">Internship</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <aside class="sidebar">
+            <div class="avatar">
+                <img src="../assets/img/avatar.png" alt="Avatar" onerror="this.style.display='none'">
+            </div>
+
+            <h1 class="name">Minghan Lyu</h1>
+            <p class="tagline">
+                Undergraduate Student, School of Software<br />
+                Shandong University (SDU)
+            </p>
+
+            <div class="contact">
+                <div class="item"><span class="k">Location</span><span class="v">Jinan, China</span></div>
+                <div class="item"><span class="k">Email</span><span class="v">202300300382@mail.sdu.edu.cn</span>
+                </div>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/Willyuliam" target="_blank" rel="noopener">GitHub</a>
+                <a href="../assets/img/%E7%AE%80%E4%BB%8B.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+            </div>
+        </aside>
+
+        <section class="content">
+            <section class="block">
+                <a class="back-link" href="../index.html#research">Back to Research Experience</a>
+                <article class="entry">
+                    <h2>Machine Learning for Protein Modeling</h2>
+                    <div class="meta"><span class="time">Jun 2026 - Sep 2026</span> | Advisor: <a
+                            href="https://cs.brown.edu/people/sistrail/sorin-istrail/" target="_blank"
+                            rel="noopener">Sorin Istrail (Professor)</a></div>
+                    <p>
+                        I investigated how machine learning can support coarse-grained protein modeling through
+                        two related lines of work: a team course project on force-field transferability and a
+                        separate research study on contact-persistence-weighted Gaussian network models (GNMs).
+                        The work connects graph representations, molecular-dynamics data, physical models,
+                        and reproducible statistical evaluation.
+                    </p>
+                    <ul>
+                        <li><strong>Course project leadership and method analysis:</strong> Led a three-member
+                            project, organized the research argument, and integrated the final report and
+                            presentation. Developed the CGSchNet section, explaining continuous-filter graph
+                            convolutions, energy-based force matching, physical priors, and the distinction
+                            between a reusable architecture and demonstrated transfer of trained parameters.</li>
+                        <li><strong>Independent source-data analysis:</strong> Reanalyzed published processed
+                            data for <strong>27 ubiquitin mutations at 21 residue positions</strong> and
+                            fluctuation profiles for <strong>1ENH and 2A3D</strong>. Applied 10,000-replicate
+                            bootstrap analyses, residue-cluster resampling, leave-one-out sensitivity,
+                            profile shape/scale comparisons, and structure localization to assess ranking,
+                            calibration, and local agreement. This analysis used published outputs and did
+                            not involve retraining the force field or rerunning molecular simulations.</li>
+                        <li><strong>ATLAS data and evaluation pipeline:</strong> Built a frozen benchmark of
+                            <strong>200 protein chains with three MD replicas per chain</strong>, reconstructing
+                            residue-level RMSF and continuous contact-persistence labels. Used an
+                            <strong>ECOD-component-disjoint 132/38/30 train/validation/test split</strong>,
+                            checked label quality against official ATLAS outputs, and locked model selection
+                            before opening the test set.</li>
+                        <li><strong>Machine learning with an analytic physical model:</strong> Compared geometric
+                            baselines, histogram gradient boosting (HGB), edge MLPs, and message-passing neural
+                            networks for contact-persistence prediction. Mapped predicted persistence to
+                            nonnegative GNM couplings and solved the network for residue flexibility, with
+                            direct neural RMSF prediction, oracle weights, and feature/cutoff ablations as
+                            comparison methods.</li>
+                        <li><strong>Held-out results:</strong> On 30 test proteins, the validation-selected HGB
+                            model reached protein-macro <strong>MAE 0.0856</strong> and
+                            <strong>Spearman 0.8878</strong> for persistence. The locked weighted GNM increased
+                            mean RMSF Spearman from <strong>0.7170 to 0.7229</strong> over uniform GNM.
+                            The mean paired effect across 28 ECOD test components was 0.00536
+                            (95% bootstrap CI 0.00126-0.00962; Holm-adjusted sign-flip p = 0.0173),
+                            supporting a modest improvement within this benchmark.</li>
+                        <li><strong>Reproducible research:</strong> Maintained auditable preprocessing,
+                            machine-readable results, source hashes, model-selection records, and a local
+                            experiment archive. Prepared the course report and a separate research manuscript,
+                            distinguishing the locked primary results from subsequent exploratory analyses.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <footer class="footer">
+                <div>© <span id="y"></span> Minghan Lyu</div>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
